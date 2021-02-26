@@ -64,6 +64,23 @@ def classify_image(image_path):
 
 st.write(classify_image('krypton_19.jpg'))
 
+def classify_all_images():
+    rootdir = 'shuttle_pictures/'
+    result_dict = {}
+
+    for subdir, _, files in os.walk(rootdir):
+        if subdir != rootdir:
+            shuttle = subdir.split("/")[-1]
+
+            classification_list = []
+            for file in files:
+                classification_list.append(classify_image(os.path.join(subdir, file)))
+            result_dict[shuttle] = classification_list
+
+    return result_dict
+
+result_dict = classify_all_images()
+st.write(result_dict)
 
 
 
