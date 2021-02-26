@@ -12,7 +12,7 @@ import pandas as pd
 
 def save_uploaded_file(file):
   # with open(os.path.join("tempDir", file.name), "wb") as f:
-  with open(os.path.join("model", file.name), "wb") as f:
+  with open(os.path.join("/model", file.name), "wb") as f:
     f.write(file.getbuffer())
   return st.success("Die Datei wurde erfolgreich hochgeladen.")
 
